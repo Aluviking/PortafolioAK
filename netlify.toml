@@ -1,0 +1,113 @@
+# Netlify Configuration File
+# Documentation: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Security Headers - ISO 27001 Compliant
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # HSTS - Enforce HTTPS (ISO 27002:8.24)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # Prevent clickjacking (ISO 27002:8.23)
+    X-Frame-Options = "DENY"
+
+    # Prevent MIME type sniffing (ISO 27002:8.25)
+    X-Content-Type-Options = "nosniff"
+
+    # XSS Protection (ISO 27002:8.26)
+    X-XSS-Protection = "1; mode=block"
+
+    # Control referrer information (ISO 27002:5.34)
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Feature Policy / Permissions Policy (ISO 27002:8.8)
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+
+    # Content Security Policy (ISO 27002:8.23, 8.26)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.netlify.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests; block-all-mixed-content;"
+
+    # Cross-Origin Policies (ISO 27002:8.25)
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+
+    # Cache Control for security
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers for HTML files (stricter CSP)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+
+# Security headers for JavaScript files
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers for CSS files
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers for images
+[[headers]]
+  for = "/*.{jpg,jpeg,png,gif,svg,webp,ico}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Cross-Origin-Resource-Policy = "cross-origin"
+
+# Redirect HTTP to HTTPS (ISO 27002:8.24)
+[[redirects]]
+  from = "http://erickelsy.com/*"
+  to = "https://erickelsy.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.erickelsy.com/*"
+  to = "https://erickelsy.com/:splat"
+  status = 301
+  force = true
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.erickelsy.com/*"
+  to = "https://erickelsy.com/:splat"
+  status = 301
+  force = true
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (example - use Netlify UI for actual values)
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Plugin configuration for security scanning
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.9
+
+# Edge functions for additional security (optional)
+# [[edge_functions]]
+#   function = "rate-limit"
+#   path = "/api/*"
