@@ -341,6 +341,182 @@ const VideosIAProject = () => {
         </div>
       </section>
 
+      {/* Capabilities Section */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-metal-900/50" />
+        <div className="section-container relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4">
+              Capacidades <span className="gradient-text-premium">Completas con IA</span>
+            </h2>
+            <p className="text-xl text-metal-300 max-w-3xl mx-auto">
+              Aprovecho el poder de la inteligencia artificial en cada etapa del proceso creativo,
+              desde la conceptualización hasta la entrega final, transformando ideas en experiencias audiovisuales únicas.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+            {[
+              'Guiones cinematográficos generados con IA',
+              'Storyboards automáticos y visualización previa',
+              'Generación de personajes y escenarios con IA',
+              'Producción audiovisual de alta calidad',
+              'Edición inteligente con algoritmos avanzados',
+              'Efectos visuales y animaciones con IA',
+              'Color grading automático profesional',
+              'Voiceover y síntesis de voz realista',
+              'Música y soundscapes generativos',
+              'Subtítulos y traducciones multiidioma',
+              'Optimización para múltiples plataformas',
+              'Formatos vertical, horizontal y cuadrado',
+              'Videos promocionales para redes sociales',
+              'Contenido personalizado por audiencia',
+              'Análisis predictivo de engagement',
+              'Iteración rápida con feedback de IA',
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.03 }}
+                className="flex items-start space-x-3 glass-premium p-4 rounded-lg border border-white/10 hover:border-white/20 transition-all"
+              >
+                <CheckCircle2 className="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+                <span className="text-metal-300 text-sm">{feature}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4">
+              Mi Proceso <span className="gradient-text-premium">Creativo con IA</span>
+            </h2>
+            <p className="text-xl text-metal-300 max-w-3xl mx-auto">
+              Un flujo de trabajo optimizado que combina creatividad humana con el poder de la inteligencia artificial
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                step: '01',
+                title: 'Concepto & Guion',
+                description: 'Desarrollo de la idea inicial usando IA para generar guiones, narrativas y conceptos visuales únicos. Iteración rápida hasta lograr la historia perfecta.',
+                icon: Film,
+              },
+              {
+                step: '02',
+                title: 'Producción & Creación',
+                description: 'Generación de contenido visual, personajes, escenarios y elementos con herramientas de IA. Producción audiovisual con tecnología de vanguardia.',
+                icon: Video,
+              },
+              {
+                step: '03',
+                title: 'Post-Producción & Entrega',
+                description: 'Edición inteligente, efectos visuales, color grading y música con IA. Optimización para cada plataforma y formato de distribución.',
+                icon: Sparkles,
+              },
+            ].map((process, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="relative glass-premium rounded-2xl p-8 border border-white/10 group card-hover-premium"
+              >
+                <div className="absolute top-6 right-6 text-7xl font-bold text-white/5 group-hover:text-white/10 transition-all">
+                  {process.step}
+                </div>
+
+                <div className="relative">
+                  <div className="w-16 h-16 glass-premium rounded-xl flex items-center justify-center mb-6 border border-white/20 group-hover:scale-110 transition-transform">
+                    <process.icon className="w-8 h-8 text-white" />
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-4">{process.title}</h3>
+                  <p className="text-metal-300 leading-relaxed">{process.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Additional Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 max-w-4xl mx-auto"
+          >
+            <div className="glass-premium rounded-2xl p-8 border border-white/10">
+              <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                El Poder de la IA en la Creación Audiovisual
+              </h3>
+              <div className="grid md:grid-cols-2 gap-6 text-metal-300">
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">¿Por qué usar IA?</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>Reducción de tiempo de producción en un 70%</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>Posibilidades creativas ilimitadas</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>Iteración rápida y experimentación sin límites</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>Consistencia en estilo y calidad</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-3">Resultados Comprobados</h4>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>+5 proyectos completados con IA</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>100% de clientes satisfechos</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>Contenido viral en redes sociales</span>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <span>ROI aumentado en campañas digitales</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 relative">
         <div className="absolute inset-0 bg-metal-900/50" />
