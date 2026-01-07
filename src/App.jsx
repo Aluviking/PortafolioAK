@@ -36,6 +36,9 @@ function App() {
       } else {
         setCurrentPage('home');
       }
+
+      // Scroll al inicio cuando cambia la página
+      window.scrollTo(0, 0);
     };
 
     handleHashChange();
