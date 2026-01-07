@@ -14,9 +14,9 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 # Denote all files that are truly binary and should not be modified
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.png binary
+*.jpg binary
+*.jpeg binary
 *.gif binary
 *.ico binary
 *.mov binary
