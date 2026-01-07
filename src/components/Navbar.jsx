@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { getAssetPath } from '../utils/paths';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +54,7 @@ const Navbar = () => {
               <div className="absolute inset-0 bg-white/10 rounded-lg blur-md opacity-50"></div>
               <div className="relative glass-premium p-2 rounded-lg border border-white/10">
                 <img
-                  src="/img/logo.png"
+                  src={getAssetPath('img/logo.png')}
                   alt="Logo"
                   className="w-8 h-8 object-contain"
                 />

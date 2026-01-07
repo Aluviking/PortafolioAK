@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { ArrowLeft, Play, Film, Megaphone, Sparkles, CheckCircle2, Video, Clapperboard, X } from 'lucide-react';
+import { getAssetPath } from '../utils/paths';
 
 const VideosIAProject = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -20,16 +21,16 @@ const VideosIAProject = () => {
   const allVideos = [
     {
       title: 'FIVE X',
-      thumbnail: '/img/FIVE X.jpeg',
-      videoUrl: '/img/FIVE X.mp4',
+      thumbnail: getAssetPath('img/FIVE X.jpeg'),
+      videoUrl: getAssetPath('img/FIVE X.mp4'),
       description: 'Mi primer video con IA - El proyecto que inició este viaje creativo',
       category: 'Destacado',
       featured: true,
     },
     {
       title: 'Película IA',
-      thumbnail: '/img/la carga.jpg',
-      videoUrl: '/img/Pelicula iA.mp4',
+      thumbnail: getAssetPath('img/la carga.jpg'),
+      videoUrl: getAssetPath('img/Pelicula iA.mp4'),
       description: 'Película generada completamente con inteligencia artificial',
       category: 'Cine con IA',
       isVertical: true,
@@ -37,21 +38,21 @@ const VideosIAProject = () => {
     {
       title: 'Video para Universidad - IA Interactiva',
       thumbnail: null, // Sin miniatura específica, usará el video
-      videoUrl: '/img/Video IA PARA UNIVERSIDAD 2.mp4',
+      videoUrl: getAssetPath('img/Video IA PARA UNIVERSIDAD 2.mp4'),
       description: 'IA que interactúa con la gente en una página web',
       category: 'Videos Promocionales',
     },
     {
       title: 'Campaña Universitaria de Bogotá',
       thumbnail: null, // Sin miniatura específica, usará el video
-      videoUrl: '/img/Video IA PARA UNIVERSIDAD.mp4',
+      videoUrl: getAssetPath('img/Video IA PARA UNIVERSIDAD.mp4'),
       description: 'Video promocional para campaña de la Universitaria de Bogotá',
       category: 'Videos Promocionales',
     },
     {
       title: 'Pinturas Tito Pabón - Concepto Refill',
       thumbnail: null, // Sin miniatura específica, usará el video
-      videoUrl: '/img/Videos promo.mp4',
+      videoUrl: getAssetPath('img/Videos promo.mp4'),
       description: 'Modelo 3D con concepto Refill de máquina de pintura que reduce la huella ambiental',
       category: 'Videos Promocionales',
     },

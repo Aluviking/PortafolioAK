@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { ExternalLink, Github, Eye, Star } from 'lucide-react';
+import { getAssetPath } from '../utils/paths';
 
 // Image Slider Component
 const ImageSlider = ({ images }) => {
@@ -75,11 +76,11 @@ const Projects = () => {
       description:
         'Desarrollo completo del nuevo sitio web institucional con tecnologías de alto impacto y valor moderno. Plataforma robusta con diseño responsivo, sistema de gestión de contenidos y optimización SEO.',
       images: [
-        '/img/Universitaria de bogota.png',
-        '/img/Universitaria de bogota 1.png',
-        '/img/Universitaria de bogota 2.png',
-        '/img/Universitaria de bogota 3.png',
-        '/img/Universitaria de bogota 4.png',
+        getAssetPath('img/Universitaria de bogota.png'),
+        getAssetPath('img/Universitaria de bogota 1.png'),
+        getAssetPath('img/Universitaria de bogota 2.png'),
+        getAssetPath('img/Universitaria de bogota 3.png'),
+        getAssetPath('img/Universitaria de bogota 4.png'),
       ],
       tags: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'MongoDB', 'AWS'],
       category: 'Institucional',
@@ -92,11 +93,11 @@ const Projects = () => {
       description:
         'Plataforma de comercio electrónico con tecnologías modernas y soluciones sostenibles. Sistema completo con catálogo de productos, carrito de compras, pasarela de pagos y panel administrativo.',
       images: [
-        '/img/Pinturas tito pabon.png',
-        '/img/Pinturas tito pabon 1.png',
-        '/img/Pinturas tito pabon 2.png',
-        '/img/Pinturas tito pabon 3.png',
-        '/img/Pinturas tito pabon 4.png',
+        getAssetPath('img/Pinturas tito pabon.png'),
+        getAssetPath('img/Pinturas tito pabon 1.png'),
+        getAssetPath('img/Pinturas tito pabon 2.png'),
+        getAssetPath('img/Pinturas tito pabon 3.png'),
+        getAssetPath('img/Pinturas tito pabon 4.png'),
       ],
       tags: ['React', 'Node.js', 'Stripe', 'PostgreSQL', 'Docker', 'Redis'],
       category: 'E-Commerce',
@@ -108,7 +109,7 @@ const Projects = () => {
       title: 'Proyectos Audiovisuales con IA',
       description:
         'Un viaje creativo que comenzó con FIVE X. Películas con guiones generados por IA, videos promocionales innovadores y contenido audiovisual revolucionario.',
-      image: '/img/FIVE X.jpeg',
+      image: getAssetPath('img/FIVE X.jpeg'),
       tags: ['IA Generativa', 'Producción', 'Guion', 'Edición'],
       category: 'Videos IA',
       github: '#',

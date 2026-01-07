@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Shield, BarChart3, Users } from 'lucide-react';
+import { getAssetPath } from '../utils/paths';
 
 const Hero = () => {
   const stats = [
@@ -194,7 +195,7 @@ const Hero = () => {
 
                 <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-white/10">
                   <img
-                    src="/img/perfil.png"
+                    src={getAssetPath('img/perfil.png')}
                     alt="Eric Alexander Castañeda Kelsy"
                     className="w-full h-full object-cover"
                   />

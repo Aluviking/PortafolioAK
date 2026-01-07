@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Code2, Heart, Github, Linkedin, Mail, Palette, ArrowUp } from 'lucide-react';
+import { getAssetPath } from '../utils/paths';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -105,7 +106,7 @@ const Footer = () => {
                   <div className="absolute inset-0 bg-white/20 rounded-lg blur-xl opacity-50" />
                   <div className="relative glass-premium p-3 rounded-lg border border-white/10">
                     <img
-                      src="/img/logo.png"
+                      src={getAssetPath('img/logo.png')}
                       alt="Logo"
                       className="w-16 h-16 object-contain"
                     />
