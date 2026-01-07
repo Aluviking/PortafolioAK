@@ -1,6 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-
 # Custom for Visual Studio
 *.cs     diff=csharp
 # Standard to msysgit
@@ -21,7 +20,7 @@
 *.gif binary
 *.ico binary
 *.mov binary
-*.mp4 binary
+*.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mp3 binary
 *.flv binary
 *.fla binary
@@ -35,4 +34,3 @@
 *.woff2 binary
 *.pyc binary
 *.pdf binary
-*.mp4 filter=lfs diff=lfs merge=lfs -text
