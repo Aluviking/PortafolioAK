@@ -116,39 +116,6 @@ const Projects = () => {
       featured: true,
       isVideo: true,
     },
-    {
-      title: 'Portal de Seguridad ISO 27001',
-      description:
-        'Sistema de gestión de seguridad de la información con módulos de auditoría, gestión de riesgos, controles y generación de reportes de cumplimiento.',
-      image: '/img/footer.jpg',
-      tags: ['Vue.js', 'Python', 'Django', 'PostgreSQL'],
-      category: 'Ciberseguridad',
-      github: '#',
-      live: '#proyecto-iso27001',
-      featured: false,
-    },
-    {
-      title: 'App Móvil - FitLife Pro',
-      description:
-        'Aplicación móvil de salud y bienestar con seguimiento de actividad física, planes nutricionales personalizados y gamificación de objetivos.',
-      image: '/img/image.png',
-      tags: ['React Native', 'Firebase', 'TensorFlow'],
-      category: 'Mobile',
-      github: '#',
-      live: '#proyecto-fitlife',
-      featured: false,
-    },
-    {
-      title: 'Sistema CRM - SalesHub',
-      description:
-        'Plataforma CRM integral para gestión de clientes, pipeline de ventas, automatización de marketing y reportes de rendimiento comercial.',
-      image: '/img/perfil.png',
-      tags: ['Angular', 'NestJS', 'MongoDB', 'Redis'],
-      category: 'SaaS',
-      github: '#',
-      live: '#proyecto-saleshub',
-      featured: true,
-    },
   ];
 
   const containerVariants = {
