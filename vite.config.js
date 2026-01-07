@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     // Optimize build for production
-    minify: 'terser',
+    minify: 'esbuild',
     sourcemap: false, // Disable source maps in production for security
     rollupOptions: {
       output: {
