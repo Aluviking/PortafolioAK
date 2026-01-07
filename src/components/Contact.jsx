@@ -32,9 +32,9 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Palette, href: 'https://www.artstation.com', label: 'ArtStation' },
+    { icon: Github, href: 'https://github.com/Aluviking', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/eric-castañeda-kelsy-1586142b3', label: 'LinkedIn' },
+    { icon: Palette, href: 'https://www.artstation.com/kelseyart_oficial', label: 'ArtStation' },
     { icon: Mail, href: 'mailto:kelseyartoficial@gmail.com', label: 'Email' },
   ];
 

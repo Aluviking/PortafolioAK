@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,8 +7,42 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import UniversitariaProject from './pages/UniversitariaProject';
+import TitoPabonProject from './pages/TitoPabonProject';
+import BankCorpProject from './pages/BankCorpProject';
+import ISO27001Project from './pages/ISO27001Project';
+import FitLifeProject from './pages/FitLifeProject';
+import VideosIAProject from './pages/VideosIAProject';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  // Simple routing based on hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash === 'proyecto-universitaria') {
+        setCurrentPage('universitaria');
+      } else if (hash === 'proyecto-tito-pabon') {
+        setCurrentPage('tito-pabon');
+      } else if (hash === 'proyecto-bankcorp') {
+        setCurrentPage('bankcorp');
+      } else if (hash === 'proyecto-iso27001') {
+        setCurrentPage('iso27001');
+      } else if (hash === 'proyecto-fitlife') {
+        setCurrentPage('fitlife');
+      } else if (hash === 'proyecto-videos-ia') {
+        setCurrentPage('videos-ia');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   useEffect(() => {
     // Smooth scroll polyfill for older browsers
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -63,6 +97,31 @@ function App() {
       cursor.remove();
     };
   }, []);
+
+  // Render based on current page
+  if (currentPage === 'universitaria') {
+    return <UniversitariaProject />;
+  }
+
+  if (currentPage === 'tito-pabon') {
+    return <TitoPabonProject />;
+  }
+
+  if (currentPage === 'bankcorp') {
+    return <BankCorpProject />;
+  }
+
+  if (currentPage === 'iso27001') {
+    return <ISO27001Project />;
+  }
+
+  if (currentPage === 'fitlife') {
+    return <FitLifeProject />;
+  }
+
+  if (currentPage === 'videos-ia') {
+    return <VideosIAProject />;
+  }
 
   return (
     <div className="relative min-h-screen bg-dark-bg overflow-hidden">

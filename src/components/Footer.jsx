@@ -30,18 +30,18 @@ const Footer = () => {
     {
       title: 'Conecta',
       links: [
-        { name: 'GitHub', href: 'https://github.com' },
-        { name: 'LinkedIn', href: 'https://linkedin.com' },
-        { name: 'ArtStation', href: 'https://www.artstation.com' },
+        { name: 'GitHub', href: 'https://github.com/Aluviking' },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/in/eric-castañeda-kelsy-1586142b3' },
+        { name: 'ArtStation', href: 'https://www.artstation.com/kelseyart_oficial' },
         { name: 'Email', href: 'mailto:kelseyartoficial@gmail.com' },
       ],
     },
   ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Palette, href: 'https://www.artstation.com', label: 'ArtStation' },
+    { icon: Github, href: 'https://github.com/Aluviking', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/eric-castañeda-kelsy-1586142b3', label: 'LinkedIn' },
+    { icon: Palette, href: 'https://www.artstation.com/kelseyart_oficial', label: 'ArtStation' },
     { icon: Mail, href: 'mailto:kelseyartoficial@gmail.com', label: 'Email' },
   ];
 

@@ -1,7 +1,68 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ExternalLink, Github, Eye, Star } from 'lucide-react';
+
+// Image Slider Component
+const ImageSlider = ({ images }) => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000); // Cambia cada 4 segundos
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {/* Images with enhanced animations */}
+      {images.map((image, index) => (
+        <motion.div
+          key={index}
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{
+            opacity: currentImage === index ? 1 : 0,
+            scale: currentImage === index ? 1 : 1.1
+          }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
+          <img
+            src={image}
+            alt={`Slide ${index + 1}`}
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay gradient for better visibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-metal-950/60 via-transparent to-transparent" />
+        </motion.div>
+      ))}
+
+      {/* Enhanced Dots Indicator */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30 bg-black/30 backdrop-blur-sm px-3 py-2 rounded-full">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImage(index)}
+            className={`rounded-full transition-all duration-500 ${
+              currentImage === index
+                ? 'bg-white w-8 h-2 shadow-lg shadow-white/50'
+                : 'bg-white/40 w-2 h-2 hover:bg-white/60'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Image counter */}
+      <div className="absolute top-4 right-4 z-30 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full">
+        <span className="text-white text-sm font-semibold">
+          {currentImage + 1} / {images.length}
+        </span>
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
   const ref = useRef(null);
@@ -10,70 +71,83 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Plataforma Corporativa SaaS',
+      title: 'Sitio Web Institucional - Universitaria de Bogotá',
       description:
-        'Sistema completo de gestión empresarial con arquitectura microservicios, autenticación avanzada y controles de seguridad ISO 27001.',
-      image: '/img/banner.jpg',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'AWS', 'Docker'],
-      category: 'Full Stack',
-      github: '#',
-      live: '#',
+        'Desarrollo completo del nuevo sitio web institucional con tecnologías de alto impacto y valor moderno. Plataforma robusta con diseño responsivo, sistema de gestión de contenidos y optimización SEO.',
+      images: [
+        '/img/Universitaria de bogota.png',
+        '/img/Universitaria de bogota 1.png',
+        '/img/Universitaria de bogota 2.png',
+        '/img/Universitaria de bogota 3.png',
+        '/img/Universitaria de bogota 4.png',
+      ],
+      tags: ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'MongoDB', 'AWS'],
+      category: 'Institucional',
+      live: '#proyecto-universitaria',
       featured: true,
+      isSlider: true,
     },
     {
-      title: 'Dashboard Analítica en Tiempo Real',
+      title: 'E-Commerce Moderno - Pinturas Tito Pabón',
       description:
-        'Dashboard interactivo con visualizaciones de datos en tiempo real, WebSockets y optimización de rendimiento.',
-      image: '/img/perfil.png',
-      tags: ['Next.js', 'D3.js', 'Socket.io', 'Redis'],
-      category: 'Frontend',
-      github: '#',
-      live: '#',
+        'Plataforma de comercio electrónico con tecnologías modernas y soluciones sostenibles. Sistema completo con catálogo de productos, carrito de compras, pasarela de pagos y panel administrativo.',
+      images: [
+        '/img/Pinturas tito pabon.png',
+        '/img/Pinturas tito pabon 1.png',
+        '/img/Pinturas tito pabon 2.png',
+        '/img/Pinturas tito pabon 3.png',
+        '/img/Pinturas tito pabon 4.png',
+      ],
+      tags: ['React', 'Node.js', 'Stripe', 'PostgreSQL', 'Docker', 'Redis'],
+      category: 'E-Commerce',
+      live: '#proyecto-tito-pabon',
       featured: true,
+      isSlider: true,
     },
     {
-      title: 'Sistema de Gestión de Seguridad',
+      title: 'Proyectos Audiovisuales con IA',
       description:
-        'Plataforma de auditoría y gestión de controles de seguridad con reportes automatizados y seguimiento de vulnerabilidades.',
+        'Un viaje creativo que comenzó con FIVE X. Películas con guiones generados por IA, videos promocionales innovadores y contenido audiovisual revolucionario.',
+      image: '/img/FIVE X.jpeg',
+      tags: ['IA Generativa', 'Producción', 'Guion', 'Edición'],
+      category: 'Videos IA',
+      github: '#',
+      live: '#proyecto-videos-ia',
+      featured: true,
+      isVideo: true,
+    },
+    {
+      title: 'Portal de Seguridad ISO 27001',
+      description:
+        'Sistema de gestión de seguridad de la información con módulos de auditoría, gestión de riesgos, controles y generación de reportes de cumplimiento.',
       image: '/img/footer.jpg',
-      tags: ['Python', 'Django', 'PostgreSQL', 'Celery'],
-      category: 'Security',
+      tags: ['Vue.js', 'Python', 'Django', 'PostgreSQL'],
+      category: 'Ciberseguridad',
       github: '#',
-      live: '#',
+      live: '#proyecto-iso27001',
       featured: false,
     },
     {
-      title: 'E-Commerce Premium',
+      title: 'App Móvil - FitLife Pro',
       description:
-        'Tienda online de alto rendimiento con pasarela de pagos, gestión de inventario y panel administrativo completo.',
+        'Aplicación móvil de salud y bienestar con seguimiento de actividad física, planes nutricionales personalizados y gamificación de objetivos.',
       image: '/img/image.png',
-      tags: ['React', 'Stripe', 'MongoDB', 'Express'],
-      category: 'Full Stack',
-      github: '#',
-      live: '#',
-      featured: false,
-    },
-    {
-      title: 'Aplicación Móvil FinTech',
-      description:
-        'App móvil de gestión financiera personal con sincronización bancaria y análisis predictivo de gastos.',
-      image: '/img/banner.jpg',
-      tags: ['React Native', 'TypeScript', 'Firebase'],
+      tags: ['React Native', 'Firebase', 'TensorFlow'],
       category: 'Mobile',
       github: '#',
-      live: '#',
-      featured: true,
+      live: '#proyecto-fitlife',
+      featured: false,
     },
     {
-      title: 'Sistema de Design System',
+      title: 'Sistema CRM - SalesHub',
       description:
-        'Librería de componentes reutilizables con documentación completa y playground interactivo.',
+        'Plataforma CRM integral para gestión de clientes, pipeline de ventas, automatización de marketing y reportes de rendimiento comercial.',
       image: '/img/perfil.png',
-      tags: ['React', 'Storybook', 'Tailwind', 'TypeScript'],
-      category: 'UI/UX',
+      tags: ['Angular', 'NestJS', 'MongoDB', 'Redis'],
+      category: 'SaaS',
       github: '#',
-      live: '#',
-      featured: false,
+      live: '#proyecto-saleshub',
+      featured: true,
     },
   ];
 
@@ -157,16 +231,20 @@ const Projects = () => {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-metal-950 via-metal-950/50 to-transparent z-10" />
 
-                  {/* Image */}
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    animate={{
-                      scale: hoveredIndex === index ? 1.1 : 1,
-                    }}
-                    transition={{ duration: 0.6 }}
-                  />
+                  {/* Image or Slider */}
+                  {project.isSlider ? (
+                    <ImageSlider images={project.images} />
+                  ) : (
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                      animate={{
+                        scale: hoveredIndex === index ? 1.1 : 1,
+                      }}
+                      transition={{ duration: 0.6 }}
+                    />
+                  )}
 
                   {/* Hover Overlay with Links */}
                   <motion.div

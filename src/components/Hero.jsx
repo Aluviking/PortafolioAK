@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download, ArrowRight, CheckCircle2, Shield, BarChart3, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Shield, BarChart3, Users } from 'lucide-react';
 
 const Hero = () => {
   const stats = [
@@ -127,8 +127,8 @@ const Hero = () => {
                 whileTap={{ scale: 0.98 }}
                 className="button-premium-outline flex items-center space-x-2 group"
               >
-                <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-                <span>Descargar CV</span>
+                <span>Contactar</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.a>
             </motion.div>
 
