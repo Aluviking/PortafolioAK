@@ -281,8 +281,12 @@ const UniversitariaProject = () => {
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                href="#"
-                onClick={(e) => { e.preventDefault(); window.location.hash = '#contact'; }}
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.hash = '';
+                  setTimeout(() => { window.location.hash = 'contact'; }, 100);
+                }}
                 className="button-premium"
               >
                 Iniciar proyecto
@@ -290,8 +294,17 @@ const UniversitariaProject = () => {
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                href="#"
-                onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.hash = '';
+                  setTimeout(() => {
+                    const projectsSection = document.getElementById('projects');
+                    if (projectsSection) {
+                      projectsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
                 className="button-premium-outline"
               >
                 Ver más proyectos
