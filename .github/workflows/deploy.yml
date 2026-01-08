@@ -38,6 +38,13 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Verify images in dist
+        run: |
+          echo "Checking for project images in dist/img/"
+          ls -lh dist/img/ | grep -E "(Universitaria|Pinturas)" || echo "WARNING: Project images not found!"
+          echo "Total PNG files:" && find dist/img -name "*.png" | wc -l
+          echo "Total JPG files:" && find dist/img -name "*.jpg" -o -name "*.jpeg" | wc -l
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
