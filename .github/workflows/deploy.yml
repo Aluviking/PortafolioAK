@@ -20,11 +20,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          lfs: true
 
-      - name: Checkout LFS objects
-        run: git lfs checkout
+      - name: Pull LFS files (videos only)
+        run: git lfs pull --include="*.mp4"
 
       - name: Setup Node
         uses: actions/setup-node@v4
