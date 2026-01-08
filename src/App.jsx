@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,12 +7,24 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import UniversitariaProject from './pages/UniversitariaProject';
-import TitoPabonProject from './pages/TitoPabonProject';
-import BankCorpProject from './pages/BankCorpProject';
-import ISO27001Project from './pages/ISO27001Project';
-import FitLifeProject from './pages/FitLifeProject';
-import VideosIAProject from './pages/VideosIAProject';
+
+// Lazy load project pages for better performance
+const UniversitariaProject = lazy(() => import('./pages/UniversitariaProject'));
+const TitoPabonProject = lazy(() => import('./pages/TitoPabonProject'));
+const BankCorpProject = lazy(() => import('./pages/BankCorpProject'));
+const ISO27001Project = lazy(() => import('./pages/ISO27001Project'));
+const FitLifeProject = lazy(() => import('./pages/FitLifeProject'));
+const VideosIAProject = lazy(() => import('./pages/VideosIAProject'));
+
+// Loading component
+const PageLoader = () => (
+  <div className="min-h-screen bg-metal-950 flex items-center justify-center">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-white/60">Cargando...</p>
+    </div>
+  </div>
+);
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -101,29 +113,53 @@ function App() {
     };
   }, []);
 
-  // Render based on current page
+  // Render based on current page with Suspense for lazy loading
   if (currentPage === 'universitaria') {
-    return <UniversitariaProject />;
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <UniversitariaProject />
+      </Suspense>
+    );
   }
 
   if (currentPage === 'tito-pabon') {
-    return <TitoPabonProject />;
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <TitoPabonProject />
+      </Suspense>
+    );
   }
 
   if (currentPage === 'bankcorp') {
-    return <BankCorpProject />;
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <BankCorpProject />
+      </Suspense>
+    );
   }
 
   if (currentPage === 'iso27001') {
-    return <ISO27001Project />;
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <ISO27001Project />
+      </Suspense>
+    );
   }
 
   if (currentPage === 'fitlife') {
-    return <FitLifeProject />;
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <FitLifeProject />
+      </Suspense>
+    );
   }
 
   if (currentPage === 'videos-ia') {
-    return <VideosIAProject />;
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <VideosIAProject />
+      </Suspense>
+    );
   }
 
   return (

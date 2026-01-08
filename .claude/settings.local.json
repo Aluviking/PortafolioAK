@@ -8,7 +8,25 @@
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "Bash(npm run build:*)",
+      "Bash(cat:*)",
+      "Bash(git lfs track:*)",
+      "Bash(git rm:*)",
+      "Bash(git lfs:*)",
+      "Bash(GIT_LFS_SKIP_SMUDGE=1 git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git checkout:*)",
+      "Bash(git -c filter.lfs.smudge= -c filter.lfs.required=false add public/img/*.png public/img/*.jpg public/img/*.jpeg)",
+      "Bash(gh run list:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(git show:*)",
+      "Bash(npm install:*)",
+      "Bash(node optimize-images.js:*)",
+      "Bash(for f in optimized-*)",
+      "Bash(do mv \"$f\" \"$f#optimized-\")",
+      "Bash(done)"
     ]
   }
 }
