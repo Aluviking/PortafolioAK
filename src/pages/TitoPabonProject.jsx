@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowLeft, ExternalLink, Code, Palette, Shield, Zap, CheckCircle2, ShoppingCart, CreditCard, Package, TrendingUp } from 'lucide-react';
+import { getAssetPath } from '../utils/paths';
 
 const TitoPabonProject = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
-    '/img/Pinturas tito pabon.png',
-    '/img/Pinturas tito pabon 1.png',
-    '/img/Pinturas tito pabon 2.png',
-    '/img/Pinturas tito pabon 3.png',
-    '/img/Pinturas tito pabon 4.png',
+    getAssetPath('img/Pinturas tito pabon.png'),
+    getAssetPath('img/Pinturas tito pabon 1.png'),
+    getAssetPath('img/Pinturas tito pabon 2.png'),
+    getAssetPath('img/Pinturas tito pabon 3.png'),
+    getAssetPath('img/Pinturas tito pabon 4.png'),
   ];
 
   const technologies = [

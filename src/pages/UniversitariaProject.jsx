@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowLeft, ExternalLink, Code, Palette, Shield, Zap, CheckCircle2, Globe } from 'lucide-react';
+import { getAssetPath } from '../utils/paths';
 
 const UniversitariaProject = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
-    '/img/Universitaria de bogota.png',
-    '/img/Universitaria de bogota 1.png',
-    '/img/Universitaria de bogota 2.png',
-    '/img/Universitaria de bogota 3.png',
-    '/img/Universitaria de bogota 4.png',
+    getAssetPath('img/Universitaria de bogota.png'),
+    getAssetPath('img/Universitaria de bogota 1.png'),
+    getAssetPath('img/Universitaria de bogota 2.png'),
+    getAssetPath('img/Universitaria de bogota 3.png'),
+    getAssetPath('img/Universitaria de bogota 4.png'),
   ];
 
   const technologies = [
